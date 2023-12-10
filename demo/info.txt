@@ -1,0 +1,4 @@
+Studio execution: 
+
+java -jar graphwalker-studio-4.3.2.jar
+http://localhost:9090/studio.html

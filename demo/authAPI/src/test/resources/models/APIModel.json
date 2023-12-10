@@ -1,0 +1,204 @@
+{
+  "models": [
+    {
+      "edges": [
+        {
+          "id": "e32e6e59-d3d2-4b85-a9bb-6c9be685f1bb",
+          "name": "e_UserWantsToRegister",
+          "sourceVertexId": "ad2668e5-6df2-4a67-b7eb-418cb4cc89fa",
+          "targetVertexId": "0a0609c0-d0b4-4aed-86a3-7e43cbbedb42",
+          "actions": [
+            "isLoggedIn = false",
+            "areCredentialsValid = false",
+            "areAccountDetailsValid = false"
+          ]
+        },
+        {
+          "id": "8339dcde-8789-4065-bca5-171a733bfd12",
+          "name": "e_Login",
+          "sourceVertexId": "ad2668e5-6df2-4a67-b7eb-418cb4cc89fa",
+          "targetVertexId": "26e09e23-bfa5-44a8-92e9-606b2aad800b",
+          "guard": "areCredentialsValid == true",
+          "requirements": [
+            "a"
+          ],
+          "actions": [
+            "isLoggedIn = true"
+          ]
+        },
+        {
+          "id": "3b13d771-c44b-425b-8b2f-004517dd7635",
+          "name": "e_AccountRegistered",
+          "sourceVertexId": "0a0609c0-d0b4-4aed-86a3-7e43cbbedb42",
+          "targetVertexId": "ad2668e5-6df2-4a67-b7eb-418cb4cc89fa",
+          "guard": "areAccountDetailsValid = true;"
+        },
+        {
+          "id": "e1c1838f-8234-4014-8a0b-936c4ebc345d",
+          "name": "e_Logout",
+          "sourceVertexId": "26e09e23-bfa5-44a8-92e9-606b2aad800b",
+          "targetVertexId": "ab85714b-11b4-4d47-ac84-2aa06e039a64",
+          "actions": [
+            "isLoggedIn = false;"
+          ],
+          "guard": "isLoggedIn == true"
+        },
+        {
+          "id": "2271d7d3-561a-43ad-9571-c7b06cdc8166",
+          "name": "e_RequestPosts",
+          "sourceVertexId": "26e09e23-bfa5-44a8-92e9-606b2aad800b",
+          "targetVertexId": "1b84233c-e87e-430a-a17c-e3fcd56163d6",
+          "guard": "isLoggedIn == true"
+        },
+        {
+          "id": "cf78a74c-cfd2-4e66-9e0e-30112e64d32e",
+          "name": "e_DoneViewingPosts",
+          "sourceVertexId": "1b84233c-e87e-430a-a17c-e3fcd56163d6",
+          "targetVertexId": "26e09e23-bfa5-44a8-92e9-606b2aad800b",
+          "guard": "isLoggedIn == true"
+        },
+        {
+          "id": "94c788b9-c61d-4b57-a987-c7be358d4b60",
+          "name": "e_Logout",
+          "sourceVertexId": "1b84233c-e87e-430a-a17c-e3fcd56163d6",
+          "targetVertexId": "ab85714b-11b4-4d47-ac84-2aa06e039a64",
+          "actions": [
+            "isLoggedIn = false;"
+          ],
+          "guard": "isLoggedIn == true"
+        },
+        {
+          "id": "1f5757f8-c5e8-44a7-a1bf-25662786553a",
+          "name": "e_CanLogBackIn",
+          "sourceVertexId": "ab85714b-11b4-4d47-ac84-2aa06e039a64",
+          "targetVertexId": "ad2668e5-6df2-4a67-b7eb-418cb4cc89fa"
+        },
+        {
+          "id": "1593dbf1-fb64-4c4e-a8a5-7b8c0d6569d7",
+          "name": "e_InvalidCredentials",
+          "sourceVertexId": "ad2668e5-6df2-4a67-b7eb-418cb4cc89fa",
+          "targetVertexId": "ad2668e5-6df2-4a67-b7eb-418cb4cc89fa",
+          "actions": [
+            "areCredentialsValid = false"
+          ],
+          "guard": "isLoggedIn == false"
+        },
+        {
+          "id": "dd009dad-1f35-46a1-9125-7b0208b6c9dc",
+          "name": "e_InvalidAccountDetails",
+          "sourceVertexId": "0a0609c0-d0b4-4aed-86a3-7e43cbbedb42",
+          "targetVertexId": "0a0609c0-d0b4-4aed-86a3-7e43cbbedb42",
+          "actions": [
+            "areAccountDetailsValid = false"
+          ],
+          "guard": "isLoggedIn == false"
+        },
+        {
+          "id": "68cf1772-ce94-47ed-af2f-14aa4b94b312",
+          "name": "e_ValidCredentials",
+          "sourceVertexId": "ad2668e5-6df2-4a67-b7eb-418cb4cc89fa",
+          "targetVertexId": "ad2668e5-6df2-4a67-b7eb-418cb4cc89fa",
+          "actions": [
+            "areCredentialsValid = true"
+          ],
+          "guard": "isLoggedIn == false"
+        },
+        {
+          "id": "f9e68716-e7d5-4c82-bedb-5c97042e9009",
+          "name": "e_ValidAccountDetails",
+          "sourceVertexId": "0a0609c0-d0b4-4aed-86a3-7e43cbbedb42",
+          "targetVertexId": "0a0609c0-d0b4-4aed-86a3-7e43cbbedb42",
+          "guard": "isLoggedIn == false",
+          "actions": [
+            "areAccountDetailsValid = true;"
+          ]
+        },
+        {
+          "id": "755d7846-1d80-405b-a4da-1bbcbcd16612",
+          "name": "e_CreatePost",
+          "sourceVertexId": "26e09e23-bfa5-44a8-92e9-606b2aad800b",
+          "targetVertexId": "e7a83386-cca6-4e1c-87e1-d63d0bc3c75e",
+          "guard": "isLoggedIn == true"
+        },
+        {
+          "id": "0331fd94-11eb-415d-af68-84308ac239db",
+          "name": "e_PostCreated",
+          "sourceVertexId": "e7a83386-cca6-4e1c-87e1-d63d0bc3c75e",
+          "targetVertexId": "26e09e23-bfa5-44a8-92e9-606b2aad800b"
+        }
+      ],
+      "generator": "random(edge_coverage(100))",
+      "id": "9fe83e1d-2bfd-44df-9b50-75635a22a42e",
+      "name": "APIModel",
+      "startElementId": "ad2668e5-6df2-4a67-b7eb-418cb4cc89fa",
+      "vertices": [
+        {
+          "id": "26e09e23-bfa5-44a8-92e9-606b2aad800b",
+          "name": "v_LoggedIn",
+          "properties": {
+            "x": 441,
+            "y": 511
+          },
+          "requirements": [
+            "a"
+          ]
+        },
+        {
+          "id": "0a0609c0-d0b4-4aed-86a3-7e43cbbedb42",
+          "name": "v_RegistrationPrompt",
+          "properties": {
+            "x": 286,
+            "y": 268
+          },
+          "requirements": [
+            "i"
+          ]
+        },
+        {
+          "id": "1b84233c-e87e-430a-a17c-e3fcd56163d6",
+          "name": "v_ViewingPosts",
+          "properties": {
+            "x": 812,
+            "y": 510
+          }
+        },
+        {
+          "id": "ab85714b-11b4-4d47-ac84-2aa06e039a64",
+          "name": "v_LoggedOut",
+          "properties": {
+            "x": 446,
+            "y": 711
+          }
+        },
+        {
+          "id": "ad2668e5-6df2-4a67-b7eb-418cb4cc89fa",
+          "name": "v_LoginPrompt",
+          "properties": {
+            "x": -44,
+            "y": 512
+          },
+          "actions": [
+            "",
+            ""
+          ]
+        },
+        {
+          "id": "e7a83386-cca6-4e1c-87e1-d63d0bc3c75e",
+          "name": "v_Posting",
+          "properties": {
+            "x": 716.3959691450608,
+            "y": 321.52153934036363
+          }
+        }
+      ],
+      "actions": [
+        "isLoggedIn = false",
+        "areCredentialsValid = false",
+        "areAccountDetailsValid = false"
+      ]
+    }
+  ],
+  "selectedModelIndex": 0,
+  "selectedElementId": "ab85714b-11b4-4d47-ac84-2aa06e039a64",
+  "name": "VISMODEL"
+}
